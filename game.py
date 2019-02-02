@@ -29,10 +29,9 @@ class Game():
 
         if pyxel.btnp(pyxel.KEY_SPACE):
             player.isJumping = True
-            player.jump()
 
     def draw(self):
-        pyxel.cls(1)
+        pyxel.cls(0)
         self.drawFloor()
         player.drawPlayer()
 
@@ -40,8 +39,8 @@ class Game():
 
         x = 0
         for i in range(0, int(width / 4 + 1)):
-            pyxel.blt(x, height - 4, 0, 16, 0, 4, 4)
-            x += 4
+            pyxel.blt(x, height - 8, 0, 0, 40, 8, 8)
+            x += 8
 
 
 Game()

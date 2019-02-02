@@ -1,6 +1,6 @@
 import pyxel
 
-groundHeight = 76
+groundHeight = 54
 
 
 class Player():
@@ -16,19 +16,17 @@ class Player():
     def drawPlayer(self):
         if self.isJumping:
             while self.yPos >= (groundHeight - 30):
-                pyxel.blt(self.xPos, self.yPos, 0, 0, 0, self.velocityDirection * 16, 16, colkey=0)
+                pyxel.blt(self.xPos, self.yPos, 0, 0, 0, self.velocityDirection * -1 * 47, 34, colkey=0)
                 self.yPos -= 1
-            print("done first loop")
 
             while self.yPos < groundHeight:
-                pyxel.blt(self.xPos, self.yPos, 0, 0, 0, self.velocityDirection * 16, 16, colkey=0)
+                pyxel.blt(self.xPos, self.yPos, 0, 0, 0, self.velocityDirection * -1 * 47, 34, colkey=0)
                 self.yPos += 1
-            print("done jumping")
 
             self.isJumping = False
 
         else:
-            pyxel.blt(self.xPos, groundHeight, 0, 0, 0, self.velocityDirection * 16, 16, colkey=0)
+            pyxel.blt(self.xPos, groundHeight, 0, 0, 0, self.velocityDirection * -1 * 47, 34, colkey=0)
 
 
 
