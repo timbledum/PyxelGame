@@ -12,7 +12,7 @@ player = Player()
 class Game():
 
     def __init__(self):
-        pyxel.init(width, height, caption="Game Title", fps=30)
+        pyxel.init(width, height, caption="Game Title", fps=60)
         pyxel.load(assets)
         pyxel.run(self.update, self.draw)
 
@@ -21,16 +21,20 @@ class Game():
         if pyxel.btnp(pyxel.KEY_Q):
             pyxel.quit()
 
-        if pyxel.btnp(pyxel.KEY_LEFT):
+        if pyxel.btn(pyxel.KEY_LEFT) or pyxel.btn(pyxel.KEY_A):
             player.move(-1)
 
-        if pyxel.btnp(pyxel.KEY_RIGHT):
+        if pyxel.btn(pyxel.KEY_RIGHT) or pyxel.btn(pyxel.KEY_D):
             player.move(1)
+
+        if pyxel.btnp(pyxel.KEY_SPACE):
+            player.isJumping = True
+            player.jump()
 
     def draw(self):
         pyxel.cls(1)
         self.drawFloor()
-        player.drawPlayer(player.xPos)
+        player.drawPlayer()
 
     def drawFloor(self):
 
