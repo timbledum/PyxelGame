@@ -49,9 +49,5 @@ class Player():
 
 
 
-    def jump(self):
-        if self.isJumping == False:
-            self.isJumping = True
-
 
 
