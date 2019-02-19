@@ -5,7 +5,6 @@ from player import Player
 width = 160
 height = 96
 assets = "assets\\resources.pyxel"
-player = Player()
 
 
 
@@ -13,6 +12,7 @@ class Game():
 
     def __init__(self):
         pyxel.init(width, height, caption="Game Title", fps=60)
+        self.player = Player()
         pyxel.load(assets)
         pyxel.run(self.update, self.draw)
 
@@ -22,18 +22,18 @@ class Game():
             pyxel.quit()
 
         if pyxel.btn(pyxel.KEY_LEFT) or pyxel.btn(pyxel.KEY_A):
-            player.move(-1)
+            self.player.move(-1)
 
         if pyxel.btn(pyxel.KEY_RIGHT) or pyxel.btn(pyxel.KEY_D):
-            player.move(1)
+            self.player.move(1)
 
         if pyxel.btnp(pyxel.KEY_SPACE):
-            player.isJumping = True
+            self.player.isJumping = True
 
     def draw(self):
         pyxel.cls(0)
         self.drawFloor()
-        player.drawPlayer()
+        self.player.drawPlayer()
 
     def drawFloor(self):
 
